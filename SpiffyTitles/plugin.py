@@ -265,10 +265,12 @@ class SpiffyTitles(callbacks.Plugin):
             (title, is_redirect) = self.get_source_by_url(url, channel)
             if title:
                 # Adding the domain part to the title template
-                formatted_domain = format(_(' (at %s)'), domain)
+                # no-thx
+                # formatted_domain = format(_(' (at %s)'), domain)
                 title_template = default_template.render(
-                    title=title + formatted_domain,  # Append the domain to the title
-                    redirect=is_redirect
+                title=title, redirect=is_redirect
+                # title=title + formatted_domain,  # Append the domain to the title
+                # redirect=is_redirect
                 )
                 return title_template
             else:
